@@ -21,4 +21,13 @@ class ApplicationController < Sinatra::Base
     verses.to_json
   end
 
+  get '/books/:id' do
+
+    book = Book.find(params[:id])
+    book.to_json(include: [:verses, :chapters])#[:verses, :chapters]
+
+  end
+
+
+
 end

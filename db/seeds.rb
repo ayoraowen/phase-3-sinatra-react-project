@@ -19,7 +19,7 @@ all_books_hash.each do |book|
         chapter_item = Chapter.create(
             
             chapter_no: a,
-            chapter_text: each_chapter,
+            chapter_text: each_chapter.to_s,
             book_id: book_item.id
             
         )
@@ -30,7 +30,8 @@ all_books_hash.each do |book|
             Verse.create(
                 verse_no: b,
                 verse_text: each_verse,
-                chapter_id: chapter_item.id
+                chapter_id: chapter_item.id,
+                book_id: book_item.id
             )
         end
     end
